@@ -8,6 +8,7 @@ Proyectos académicos de la Tecnología en Desarrollo de Software y Aplicaciones
 | 4 | Diseño de Algoritmos II | [Ejercicios de grafos](ciclo-4-diseno-algoritmos-ii) | Python |
 | 5 | Aplicaciones I | [sumaalgebraica](ciclo-5-aplicaciones-i/sumaalgebraica) | C#, .NET, Windows Forms |
 | 6 | Aplicaciones II | [NotasEstudiantes](ciclo-6-aplicaciones-ii/NotasEstudiantes) | C#, ASP.NET Core MVC, EF Core, SQL Server |
+| 6 | Sistemas Integrados | [WebServiceNotas](ciclo-6-sistemas-integrados/WebServiceNotas) | PHP, REST, JSON, HTML |
 | 7 | Aplicaciones Móviles | [Promedio](ciclo-7-aplicaciones-moviles/Promedio) / [promedioEstudiantes](ciclo-7-aplicaciones-moviles/promedioEstudiantes) | Kotlin |
 | 7 | Aplicaciones Móviles | [Grupo03_DonaRosa_Inventario](ciclo-7-aplicaciones-moviles/Grupo03_DonaRosa_Inventario) | Android, Kotlin, SQLite |
 | 7 | Pruebas y Mantenimiento de Software | [ProyectoBanco](ciclo-7-pruebas-mantenimiento/ProyectoBanco) | Java, Maven, JUnit |

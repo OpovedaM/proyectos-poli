@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+  ===========================================================================
+  PROYECTO CONSTRUIDO POR:
+    Soleny Guarin Quintero
+    Jeff Alan Paladines Ordonez
+    Omar Armando Poveda Mahecha
+
+  Caso de Estudio Integrador - Sistemas Integrados
+  Politecnico Internacional - Tecnologia en Desarrollo de Software y
+  Aplicativos Moviles. Docente: Leonel Andres Lopez Arias. 2026.
+
+  index.html - Cliente web que consume el servicio definitiva.php
+  ===========================================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Nota Definitiva - Web Service</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0f2b46;
+      color: #1a2b3c;
+      margin: 0; padding: 24px;
+      display: flex; justify-content: center; align-items: flex-start;
+      min-height: 100vh;
+    }
+    .card {
+      background: #fff; border-radius: 14px; padding: 32px;
+      width: 100%; max-width: 460px; box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    }
+    h1 { font-size: 1.25rem; margin: 0 0 4px; color: #0f2b46; }
+    p.sub { margin: 0 0 20px; color: #5b6b7b; font-size: .9rem; }
+    label { display: block; font-weight: 600; margin: 14px 0 6px; font-size: .9rem; }
+    input {
+      width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1;
+      border-radius: 8px; font-size: 1rem;
+    }
+    input:focus { outline: 2px solid #1e88e5; border-color: #1e88e5; }
+    button {
+      margin-top: 22px; width: 100%; padding: 12px; border: 0; cursor: pointer;
+      background: #1e88e5; color: #fff; font-size: 1rem; font-weight: 600;
+      border-radius: 8px; transition: background .2s;
+    }
+    button:hover { background: #1565c0; }
+    .resultado {
+      margin-top: 22px; padding: 16px; border-radius: 8px; display: none;
+      font-size: .95rem; line-height: 1.5;
+    }
+    .ok    { background: #e7f6ec; border: 1px solid #34a853; color: #1e7e34; }
+    .error { background: #fdecea; border: 1px solid #d93025; color: #a50e0e; }
+    .nota-grande { font-size: 2rem; font-weight: 700; display: block; margin: 4px 0; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+    pre {
+      background: #f1f5f9; padding: 10px; border-radius: 6px; margin-top: 14px;
+      font-size: .8rem; overflow-x: auto; color: #334155;
+    }
+    small { color: #94a3b8; }
+    .url-usada {
+      margin-top: 12px; padding: 8px 10px; border-radius: 6px;
+      background: #eef2f7; color: #334155; font-family: monospace;
+      font-size: .75rem; word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Calculadora de Nota Definitiva</h1>
+    <p class="sub">Politecnico Internacional &middot; Web Service (Cliente-Servidor)</p>
+
+    <label for="nota1">Nota 1 (peso 30%)</label>
+    <input type="text" id="nota1" placeholder="Ej: 4.2" inputmode="decimal">
+
+    <label for="nota2">Nota 2 (peso 30%)</label>
+    <input type="text" id="nota2" placeholder="Ej: 3.8" inputmode="decimal">
+
+    <label for="nota3">Nota 3 (peso 40%)</label>
+    <input type="text" id="nota3" placeholder="Ej: 4.5" inputmode="decimal">
+
+    <button onclick="calcular()">Calcular nota definitiva</button>
+
+    <div id="resultado" class="resultado"></div>
+    <small>La escala es de 0.0 a 5.0. Aprueba con 3.0 o mas.</small>
+  </div>
+
+  <script>
+    // URL del web service. Si abres este archivo dentro de htdocs (XAMPP),
+    // la ruta relativa "definitiva.php" funciona directamente.
+    const ENDPOINT = 'definitiva.php';
+
+    async function calcular() {
+      const n1 = document.getElementById('nota1').value;
+      const n2 = document.getElementById('nota2').value;
+      const n3 = document.getElementById('nota3').value;
+      const caja = document.getElementById('resultado');
+
+      // Construimos la URL con los parametros (encodeURIComponent es buena practica).
+      const url = `${ENDPOINT}?nota1=${encodeURIComponent(n1)}`
+                + `&nota2=${encodeURIComponent(n2)}`
+                + `&nota3=${encodeURIComponent(n3)}`;
+
+      // Mostramos la URL consultada para evidenciar que el servicio se invoca
+      // pasando las notas como parametros, tal como lo pide el caso de estudio.
+      const urlConsultada = `<div class="url-usada">GET ${url}</div>`;
+
+      try {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        caja.style.display = 'block';
+
+        if (data.estado === 'correcto') {
+          caja.className = 'resultado ok';
+          caja.innerHTML =
+            `Nota definitiva:
+             <span class="nota-grande">${data.definitiva}</span>
+             <strong>${data.aprobo ? 'APROBADO' : 'REPROBADO'}</strong>`
+            + urlConsultada
+            + `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        } else {
+          caja.className = 'resultado error';
+          const lista = (data.errores || [data.mensaje])
+                          .map(e => `<li>${e}</li>`).join('');
+          caja.innerHTML = `<strong>${data.mensaje}</strong><ul>${lista}</ul>`
+                         + urlConsultada
+                         + `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        }
+      } catch (err) {
+        caja.style.display = 'block';
+        caja.className = 'resultado error';
+        caja.innerHTML = '<strong>No se pudo conectar con el servicio.</strong>'
+                       + '<br>Verifica que Apache/XAMPP este encendido y la ruta sea correcta.';
+      }
+    }
+  </script>
+</body>
+</html>
