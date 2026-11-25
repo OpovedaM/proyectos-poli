@@ -1,7 +1,6 @@
 # Proyectos Politécnico Internacional
 
-Proyectos académicos de la Tecnología en Desarrollo de Software y Aplicaciones Móviles, organizados por ciclo y materia.
-
+Proyectos académicos de la Tecnología en Desarrollo de Software y Aplicaciones Móviles, 
 | Ciclo | Materia | Proyecto | Tecnología |
 |-------|---------|----------|------------|
 | 3 | Programación I | [SeriesTv](ciclo-3-programacion-i/SeriesTv) | Java, Maven, Swing, MySQL |
