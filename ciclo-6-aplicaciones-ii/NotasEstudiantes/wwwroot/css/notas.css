@@ -1,0 +1,282 @@
+/* Autores: Soleny Guarin Quintero, Omar Poveda, Jeff Alan */
+/* Estilos para las vistas de calculo de nota definitiva. */
+
+body {
+    background-color: #eef1f7;
+}
+
+/* ===== Tarjeta contenedora ===== */
+.notas-card {
+    max-width: 920px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+}
+
+.notas-card.card-angosta {
+    max-width: 560px;
+}
+
+.notas-title {
+    text-align: center;
+    color: #2f54a8;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.notas-subtitle {
+    text-align: center;
+    color: #9aa3b2;
+    margin-bottom: 30px;
+}
+
+/* ===== Tabla azul ===== */
+.notas-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+}
+
+.notas-table thead th {
+    background-color: #7aa3d4;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 14px 12px;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.notas-table thead th.col-definitiva {
+    background-color: #3f78b5;
+}
+
+.notas-table tbody td {
+    text-align: center;
+    padding: 14px 12px;
+    border-bottom: 1px solid #eef1f7;
+    color: #333;
+    vertical-align: middle;
+}
+
+.notas-table tbody td.col-definitiva {
+    background-color: #eaf2fb;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* ===== Formulario ===== */
+.notas-form .form-label {
+    font-weight: 600;
+    color: #344;
+}
+
+.notas-form .form-control {
+    border: 1px solid #d6dde8;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.notas-form .form-control:focus {
+    outline: none;
+    border-color: #7aa3d4;
+    box-shadow: 0 0 0 3px rgba(122, 163, 212, 0.2);
+}
+
+.notas-formula {
+    display: block;
+    text-align: center;
+    color: #9aa3b2;
+    margin-top: 18px;
+}
+
+/* Inputs dentro de las celdas de la tabla (formulario horizontal) */
+.cell-input {
+    width: 100%;
+    border: 1px solid #d6dde8;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+}
+
+.cell-input:focus {
+    outline: none;
+    border-color: #7aa3d4;
+    box-shadow: 0 0 0 3px rgba(122, 163, 212, 0.2);
+}
+
+.cortes-errors {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.cortes-errors span {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+/* ===== Botones ===== */
+.btn-notas {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.15s ease;
+}
+
+.btn-notas:hover { color: #fff; }
+
+.btn-guardar { background-color: #3f78b5; }
+.btn-guardar:hover { background-color: #336699; }
+
+.btn-cancelar { background-color: #b9c3cd; }
+.btn-cancelar:hover { background-color: #a6b1bd; }
+
+.btn-peligro { background-color: #d9534f; }
+.btn-peligro:hover { background-color: #c0392b; }
+
+.btn-mini {
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Mantener los botones de accion en una sola linea, lado a lado */
+.acciones-celda {
+    white-space: nowrap;
+}
+
+.acciones-celda .btn-mini {
+    margin: 2px;
+}
+
+.btn-ver { background-color: #5b9bd5; }
+.btn-ver:hover { background-color: #4a90d9; }
+
+/* ===== Estados (aprobado / reprobado) ===== */
+.nota-aprobada { color: #1e7e44; font-weight: 800; }
+.nota-reprobada { color: #c0392b; font-weight: 800; }
+
+.badge-aprobado {
+    background-color: #e6f6ec;
+    color: #1e7e44;
+    border: 1px solid #b7e4c7;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.badge-reprobado {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f5c6cb;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* ===== Tarjeta de resultado ===== */
+.resultado-card {
+    max-width: 520px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.resultado-header {
+    background: linear-gradient(90deg, #4a90d9, #3f78b5);
+    color: #fff;
+    padding: 18px 22px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.resultado-body { padding: 22px; }
+
+.resultado-definitiva {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* ===== Barra de navegacion ===== */
+.navbar-notas {
+    background: linear-gradient(90deg, #4a90d9, #3f78b5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-notas .navbar-brand {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.navbar-notas .navbar-brand:hover { color: #eaf2fb; }
+
+.navbar-notas .nav-link {
+    color: rgba(255, 255, 255, 0.92) !important;
+    border-radius: 8px;
+    padding: 6px 16px !important;
+    margin: 0 3px;
+    font-weight: 500;
+    transition: background-color 0.15s ease;
+}
+
+.navbar-notas .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #ffffff !important;
+}
+
+/* ===== Mensaje de confirmacion (exito) ===== */
+.alert-exito {
+    background-color: #e6f6ec;
+    color: #1e7e44;
+    border: 1px solid #b7e4c7;
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: opacity 0.6s ease;
+}
+
+/* Cuando se agrega esta clase (desde JavaScript), el mensaje se desvanece */
+.alert-exito.ocultar,
+.alert-error.ocultar {
+    opacity: 0;
+}
+
+/* ===== Mensaje de error ===== */
+.alert-error {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f5c6cb;
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: opacity 0.6s ease;
+}
+
+/* ===== Pie de pagina ===== */
+.footer-notas {
+    text-align: center;
+    color: #b8c0cc;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}

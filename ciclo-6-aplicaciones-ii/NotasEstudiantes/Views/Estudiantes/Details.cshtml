@@ -1,0 +1,46 @@
+@* Autores: Soleny Guarin Quintero, Omar Poveda, Jeff Alan *@
+@model NotasEstudiantes.Models.Estudiante
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<div class="notas-card card-angosta">
+    <h1 class="notas-title">Detalle del Estudiante</h1>
+    <p class="notas-subtitle">Tecnología en Desarrollo de Software - Politécnico Internacional</p>
+
+    <dl class="row">
+        <dt class="col-sm-6">Nombre</dt>
+        <dd class="col-sm-6">@Model.Nombre</dd>
+
+        <dt class="col-sm-6">Corte 1 (15%)</dt>
+        <dd class="col-sm-6">@Model.Corte1.ToString("F1")</dd>
+
+        <dt class="col-sm-6">Corte 2 (35%)</dt>
+        <dd class="col-sm-6">@Model.Corte2.ToString("F1")</dd>
+
+        <dt class="col-sm-6">Corte 3 (50%)</dt>
+        <dd class="col-sm-6">@Model.Corte3.ToString("F1")</dd>
+
+        <dt class="col-sm-6">Nota Definitiva</dt>
+        <dd class="col-sm-6">
+            @if (Model.NotaDefinitiva >= 3.0m)
+            {
+                <span class="nota-aprobada">@Model.NotaDefinitiva.ToString("F1")</span>
+                <span class="badge-aprobado">Aprobado</span>
+            }
+            else
+            {
+                <span class="nota-reprobada">@Model.NotaDefinitiva.ToString("F1")</span>
+                <span class="badge-reprobado">Reprobado</span>
+            }
+        </dd>
+
+        <dt class="col-sm-6">Fecha de Registro</dt>
+        <dd class="col-sm-6">@Model.FechaRegistro.ToString("dd/MM/yyyy")</dd>
+    </dl>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn-notas btn-cancelar">Volver</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn-notas btn-peligro">Eliminar</a>
+    </div>
+</div>

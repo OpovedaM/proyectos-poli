@@ -1,0 +1,76 @@
+@* Autores: Soleny Guarin Quintero, Omar Poveda, Jeff Alan *@
+@model NotasEstudiantes.Models.Estudiante
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<div class="notas-card">
+    <h1 class="notas-title">Resultado del Cálculo</h1>
+    <p class="notas-subtitle">Tecnología en Desarrollo de Software - Politécnico Internacional</p>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert-exito">✅ @TempData["Mensaje"]</div>
+    }
+
+    <table class="notas-table">
+        <thead>
+            <tr>
+                <th>Estudiante</th>
+                <th>Corte 1 <span>(15%)</span></th>
+                <th>Corte 2 <span>(35%)</span></th>
+                <th>Corte 3 <span>(50%)</span></th>
+                <th class="col-definitiva">Definitiva</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Nombre</td>
+                <td>@Model.Corte1.ToString("F1")</td>
+                <td>@Model.Corte2.ToString("F1")</td>
+                <td>@Model.Corte3.ToString("F1")</td>
+                <td class="col-definitiva">
+                    @if (Model.NotaDefinitiva >= 3.0m)
+                    {
+                        <span class="nota-aprobada">@Model.NotaDefinitiva.ToString("F1")</span>
+                    }
+                    else
+                    {
+                        <span class="nota-reprobada">@Model.NotaDefinitiva.ToString("F1")</span>
+                    }
+                </td>
+                <td>
+                    @if (Model.NotaDefinitiva >= 3.0m)
+                    {
+                        <span class="badge-aprobado">Aprobado</span>
+                    }
+                    else
+                    {
+                        <span class="badge-reprobado">Reprobado</span>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <small class="notas-formula">
+        (@Model.Corte1.ToString("F1") × 0.15) + (@Model.Corte2.ToString("F1") × 0.35) + (@Model.Corte3.ToString("F1") × 0.50) = @Model.NotaDefinitiva.ToString("F1")
+    </small>
+
+    <div class="text-center mt-4">
+        <a asp-action="Create" class="btn-notas btn-guardar">Registrar Otro</a>
+        <a asp-action="Index" class="btn-notas btn-cancelar">Ver Lista</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // El mensaje de confirmacion se desvanece y desaparece solo despues de unos segundos.
+        const mensaje = document.querySelector('.alert-exito');
+        if (mensaje) {
+            setTimeout(() => mensaje.classList.add('ocultar'), 4000);
+            setTimeout(() => mensaje.remove(), 4700);
+        }
+    </script>
+}

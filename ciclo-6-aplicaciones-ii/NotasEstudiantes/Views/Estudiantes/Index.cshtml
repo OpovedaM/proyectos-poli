@@ -1,0 +1,96 @@
+@* Autores: Soleny Guarin Quintero, Omar Poveda, Jeff Alan *@
+@model IEnumerable<NotasEstudiantes.Models.Estudiante>
+@{
+    ViewData["Title"] = "Lista de Estudiantes";
+}
+
+<div class="notas-card">
+    <h1 class="notas-title">Estudiantes Registrados</h1>
+    <p class="notas-subtitle">Tecnología en Desarrollo de Software - Politécnico Internacional</p>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert-exito">✅ @TempData["Mensaje"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert-error">⚠️ @TempData["Error"]</div>
+    }
+
+    <div class="text-center mb-4">
+        <a asp-action="Create" class="btn-notas btn-guardar">+ Registrar Nuevo Estudiante</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">No hay estudiantes registrados todavía.</div>
+    }
+    else
+    {
+        <table class="notas-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Estudiante</th>
+                    <th>Corte 1 <span>(15%)</span></th>
+                    <th>Corte 2 <span>(35%)</span></th>
+                    <th>Corte 3 <span>(50%)</span></th>
+                    <th class="col-definitiva">Definitiva</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = 1; }
+                @foreach (var est in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@est.Nombre</td>
+                        <td>@est.Corte1.ToString("F1")</td>
+                        <td>@est.Corte2.ToString("F1")</td>
+                        <td>@est.Corte3.ToString("F1")</td>
+                        <td class="col-definitiva">
+                            @if (est.NotaDefinitiva >= 3.0m)
+                            {
+                                <span class="nota-aprobada">@est.NotaDefinitiva.ToString("F1")</span>
+                            }
+                            else
+                            {
+                                <span class="nota-reprobada">@est.NotaDefinitiva.ToString("F1")</span>
+                            }
+                        </td>
+                        <td>
+                            @if (est.NotaDefinitiva >= 3.0m)
+                            {
+                                <span class="badge-aprobado">Aprobado</span>
+                            }
+                            else
+                            {
+                                <span class="badge-reprobado">Reprobado</span>
+                            }
+                        </td>
+                        <td class="acciones-celda">
+                            <a asp-action="Details" asp-route-id="@est.Id" class="btn-notas btn-mini btn-ver">Ver</a>
+                            <a asp-action="Delete" asp-route-id="@est.Id" class="btn-notas btn-mini btn-peligro">Eliminar</a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+
+        <p class="text-center text-muted">Total estudiantes: <strong>@Model.Count()</strong></p>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // El mensaje de confirmacion (o error) se desvanece y desaparece solo despues de unos segundos.
+        const mensaje = document.querySelector('.alert-exito, .alert-error');
+        if (mensaje) {
+            setTimeout(() => mensaje.classList.add('ocultar'), 4000); // a los 4s empieza a desvanecerse
+            setTimeout(() => mensaje.remove(), 4700);                 // luego se quita por completo
+        }
+    </script>
+}

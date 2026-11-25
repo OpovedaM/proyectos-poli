@@ -1,0 +1,24 @@
+@* Autores: Soleny Guarin Quintero, Omar Poveda, Jeff Alan *@
+@model NotasEstudiantes.Models.Estudiante
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<div class="notas-card card-angosta">
+    <h1 class="notas-title">Eliminar Estudiante</h1>
+    <p class="notas-subtitle">Tecnología en Desarrollo de Software - Politécnico Internacional</p>
+
+    <div class="alert alert-warning text-center">
+        ¿Está seguro que desea eliminar al estudiante <strong>@Model.Nombre</strong>?<br />
+        Nota definitiva: <strong>@Model.NotaDefinitiva.ToString("F1")</strong>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <div class="text-center mt-4">
+            <button type="submit" class="btn-notas btn-peligro">Sí, Eliminar</button>
+            <a asp-action="Index" class="btn-notas btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>

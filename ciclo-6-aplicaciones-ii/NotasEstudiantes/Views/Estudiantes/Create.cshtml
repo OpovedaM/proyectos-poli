@@ -1,0 +1,51 @@
+@* Autores: Soleny Guarin Quintero, Omar Poveda, Jeff Alan *@
+@model NotasEstudiantes.Models.Estudiante
+@{
+    ViewData["Title"] = "Registrar Notas";
+}
+
+<div class="notas-card">
+    <h1 class="notas-title">Registrar Notas</h1>
+    <p class="notas-subtitle">Tecnología en Desarrollo de Software - Politécnico Internacional</p>
+
+    <form asp-action="Create" method="post" class="notas-form">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-3"></div>
+
+        <table class="notas-table">
+            <thead>
+                <tr>
+                    <th>Estudiante</th>
+                    <th>Corte 1 <span>(15%)</span></th>
+                    <th>Corte 2 <span>(35%)</span></th>
+                    <th>Corte 3 <span>(50%)</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input asp-for="Nombre" class="cell-input" placeholder="Nombre del estudiante" /></td>
+                    <td><input asp-for="Corte1" class="cell-input" type="number" step="0.1" min="0" max="5" /></td>
+                    <td><input asp-for="Corte2" class="cell-input" type="number" step="0.1" min="0" max="5" /></td>
+                    <td><input asp-for="Corte3" class="cell-input" type="number" step="0.1" min="0" max="5" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cortes-errors text-danger">
+            <span asp-validation-for="Nombre"></span>
+            <span asp-validation-for="Corte1"></span>
+            <span asp-validation-for="Corte2"></span>
+            <span asp-validation-for="Corte3"></span>
+        </div>
+
+        <div class="text-center mt-3">
+            <button type="submit" class="btn-notas btn-guardar">Calcular y Guardar</button>
+            <a asp-action="Index" class="btn-notas btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

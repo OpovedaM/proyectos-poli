@@ -1,0 +1,12 @@
+# ===== Carpetas de compilacion =====
+bin/
+obj/
+
+# ===== Configuracion local con credenciales (NO compartir) =====
+# Contiene la cadena de conexion a Docker con la contrasena.
+# Cada integrante usa su propia base; este archivo se queda local.
+appsettings.Development.json
+
+# ===== Archivos varios =====
+*.user
+.vs/
