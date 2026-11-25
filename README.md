@@ -1,0 +1,17 @@
+# Proyectos Politécnico Internacional
+
+Proyectos académicos de la Tecnología en Desarrollo de Software y Aplicaciones Móviles, organizados por ciclo y materia.
+
+| Ciclo | Materia | Proyecto | Tecnología |
+|-------|---------|----------|------------|
+| 3 | Programación I | [SeriesTv](ciclo-3-programacion-i/SeriesTv) | Java, Maven, Swing, MySQL |
+| 4 | Programación II | [ServletCalculoNota](ciclo-4-programacion-ii/ServletCalculoNota) | Java, Jakarta EE, Servlets, JSP |
+| 4 | Diseño de Algoritmos II | [Ejercicios de grafos](ciclo-4-diseno-algoritmos-ii) | Python |
+| 5 | Aplicaciones I | [sumaalgebraica](ciclo-5-aplicaciones-i/sumaalgebraica) | C#, .NET, Windows Forms |
+| 7 | Aplicaciones Móviles | [Promedio](ciclo-7-aplicaciones-moviles/Promedio) / [promedioEstudiantes](ciclo-7-aplicaciones-moviles/promedioEstudiantes) | Kotlin |
+| 7 | Pruebas y Mantenimiento de Software | [ProyectoBanco](ciclo-7-pruebas-mantenimiento/ProyectoBanco) | Java, Maven, JUnit |
+
+Otros proyectos en repositorios propios:
+
+- [Grupo03_DonaRosa_Inventario](https://github.com/OpovedaM/Grupo03_DonaRosa_Inventario) (Ciclo 7, Android/Kotlin)
+- [tienda-dona-rosa](https://github.com/OpovedaM/tienda-dona-rosa) (Ciclo 7, Flask)

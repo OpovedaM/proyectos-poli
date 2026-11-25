@@ -1,0 +1,115 @@
+/* Fondo general */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f2f6fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding-top: 60px;
+}
+
+/* Título principal */
+h2 {
+    color: #1e3a8a;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Tabla */
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 75%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Encabezados */
+th {
+    background-color: #93c5fd;
+    color: #1e3a8a;
+    padding: 12px;
+    font-weight: 600;
+    border-bottom: 2px solid #bfdbfe;
+}
+
+/* Celdas */
+td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Inputs */
+input[type="text"], input[type="number"] {
+    width: 90%;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
+}
+
+/* Botón Calcular Nota*/
+input[type="submit"] {
+    background-color: #60a5fa;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #3b82f6; 
+    transform: scale(1.03);
+}
+
+/* Centrado del formulario */
+form {
+    text-align: center;
+}
+
+/* Efecto de elevación general */
+table:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Estilo para el mensaje de resultado --- */
+.resultado {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.aprobado {
+    color: #2e7d32; 
+    background-color: #e8f5e9; 
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.reprobado {
+    color: #c62828; 
+    background-color: #ffebee;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}

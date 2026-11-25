@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Notas - JSP/Servlet</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h2>Registro de Notas📝</h2>
+
+    <form action="CalcularNota" method="post">
+        <table>
+            <tr>
+                <th>Estudiante</th>
+                <th>Materia</th>
+                <th>Corte 1 (35%)</th>
+                <th>Corte 2 (35%)</th>
+                <th>Corte 3 (30%)</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="estudiante" placeholder="Nombre del estudiante" required></td>
+                <td><input type="text" name="materia" placeholder="Nombre de la materia" required></td>
+                <td><input type="number" name="corte1" min="0" max="5" step="0.1" required></td>
+                <td><input type="number" name="corte2" min="0" max="5" step="0.1" required></td>
+                <td><input type="number" name="corte3" min="0" max="5" step="0.1" required></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Calcular Nota Final">
+    </form>
+</body>
+</html>

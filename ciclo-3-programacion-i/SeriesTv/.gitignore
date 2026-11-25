@@ -1,0 +1,72 @@
+# ===================================
+# .gitignore para Proyecto Java Maven + NetBeans
+# ===================================
+
+# ===================================
+# Maven - Archivos de compilación
+# ===================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# ===================================
+# NetBeans - Archivos específicos del IDE
+# ===================================
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+nbactions.xml
+nb-configuration.xml
+
+# ===================================
+# Logs y archivos temporales
+# ===================================
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ===================================
+# Sistema Operativo
+# ===================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ===================================
+# Otros IDEs (por si cambias de IDE)
+# ===================================
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ===================================
+# Archivos de configuración personal
+# ===================================
+*.properties.local
+config/local/
+
+# ===================================
+# Dependencias que pueden regenerarse
+# ===================================
+lib/unknown/
