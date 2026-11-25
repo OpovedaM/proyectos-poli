@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tienda de Doña Rosa</title>
+        <style>
+        body { font-family: Arial, sans-serif; margin: 16px; max-width: 800px; }
+        table { border-collapse: collapse; width: 100%; }
+        th { background: #165a8c; color: white; padding: 8px; }
+        td { border-bottom: 1px solid #333; padding: 8px; }
+        .errores { background: #fdecea; color: #b00020; padding: 8px; margin-bottom: 12px; }
+        form input, form button { padding: 8px; margin: 4px 0; }
+        .resumen { background: #eef5fb; padding: 8px 12px; margin-bottom: 12px; }
+        .alerta { color: #b00020; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { text-align: center; }
+        th:nth-child(2), td:nth-child(2) { text-align: left; }
+        th:nth-child(3), td:nth-child(3) { text-align: right; }
+        th:nth-child(4), td:nth-child(4) { text-align: center; }
+        th:nth-child(5), td:nth-child(5) { text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Tienda de Doña Rosa</h1>
+    <div class="resumen">
+                <p><strong>Costo total del inventario:</strong> {{ total | pesos }}</p>
+        {% if critico %}
+        <p>
+            <strong>Producto más cerca de acabarse:</strong>
+            {{ critico["producto"] }}
+            (quedan {{ critico["cantidad"] }} de {{ critico["cantidad_inicial"] }})
+            {% if por_acabarse %}<span class="alerta">¡Por acabarse!</span>{% endif %}
+        </p>
+        {% endif %}
+    </div>
+    {% if errores %}
+    <div class="errores">
+        <ul>
+            {% for e in errores %}
+            <li>{{ e }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <h3>Agregar producto</h3>
+    <form action="/agregar" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required maxlength="50">
+        <input type="number" name="precio" placeholder="Precio" required min="1">
+        <input type="number" name="cantidad" placeholder="Cantidad" required min="1">
+        <button type="submit">Agregar</button>
+    </form>
+
+    <h2>Inventario</h2>
+    <table>
+        <tr>
+            <th>Código</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+        {% for p in productos %}
+        <tr>
+            <td>{{ p["codigo"] }}</td>
+            <td>{{ p["producto"] }}</td>
+            <td>{{ p["precio"] | pesos }}</td>
+            <td>{{ p["cantidad"] }}</td>
+                        <td>
+                <a href="{{ url_for('editar', codigo=p['codigo']) }}">Editar</a>
+                <form action="{{ url_for('borrar', codigo=p['codigo']) }}" method="post"
+                      style="display:inline"
+                      onsubmit="return confirm('¿Seguro que quieres borrar este producto?');">
+                    <button type="submit">Borrar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

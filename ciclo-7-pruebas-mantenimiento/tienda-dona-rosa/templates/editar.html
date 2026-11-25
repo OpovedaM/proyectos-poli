@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar producto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 16px; }
+        .errores { background: #fdecea; color: #b00020; padding: 8px; margin-bottom: 12px; }
+        form label { display: block; margin-top: 8px; }
+        form input, form button { padding: 8px; margin: 4px 0; }
+    </style>
+</head>
+<body>
+    <h1>Editar producto</h1>
+
+    {% if errores %}
+    <div class="errores">
+        <ul>
+            {% for e in errores %}
+            <li>{{ e }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <form method="post">
+        <label>Nombre</label>
+        <input type="text" name="nombre" value="{{ producto['producto'] }}" required maxlength="50">
+
+        <label>Precio</label>
+        <input type="number" name="precio" value="{{ producto['precio'] }}" required min="1">
+
+        <label>Cantidad</label>
+        <input type="number" name="cantidad" value="{{ producto['cantidad'] }}" required min="0">
+
+        <br>
+        <button type="submit">Guardar cambios</button>
+        <a href="/">Cancelar</a>
+    </form>
+</body>
+</html>

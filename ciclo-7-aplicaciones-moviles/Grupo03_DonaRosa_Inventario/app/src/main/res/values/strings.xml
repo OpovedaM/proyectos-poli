@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">InventarioDonaRosa</string>
+
+    <!-- Pantalla principal -->
+    <string name="titulo_app">Inventario de Doña Rosa</string>
+    <string name="menu_subtitulo">¿Qué desea hacer?</string>
+    <string name="btn_registrar">Registrar producto</string>
+    <string name="btn_consultar">Consultar productos</string>
+    <string name="btn_actualizar">Actualizar producto</string>
+    <string name="btn_eliminar">Eliminar producto</string>
+    <string name="btn_inventario">Ver inventario</string>
+    <string name="btn_volver">Volver al menú</string>
+
+    <!-- Formularios -->
+    <string name="titulo_registrar">Registrar producto</string>
+    <string name="titulo_consultar">Productos registrados</string>
+    <string name="titulo_actualizar">Actualizar producto</string>
+    <string name="titulo_eliminar">Eliminar producto</string>
+    <string name="titulo_inventario">Estado del inventario</string>
+
+    <string name="hint_codigo">Código</string>
+    <string name="hint_nombre">Nombre del producto</string>
+    <string name="hint_precio">Precio</string>
+    <string name="hint_cantidad_inicial">Cantidad inicial</string>
+    <string name="hint_cantidad_actual">Cantidad actual</string>
+
+    <string name="btn_guardar">Guardar producto</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_guardar_cambios">Guardar cambios</string>
+    <string name="btn_confirmar_eliminar">Sí, eliminar este producto</string>
+    <string name="pedir_codigo">Escriba el código del producto:</string>
+
+    <!-- Mensajes de error (punto 7) -->
+    <string name="error_codigo_numero">El código debe ser un número entero</string>
+    <string name="error_codigo_mayor_cero">El código debe ser mayor que cero</string>
+    <string name="error_codigo_repetido">Ya existe un producto con ese código</string>
+    <string name="error_nombre">El nombre del producto es obligatorio</string>
+    <string name="error_precio_numero">El precio debe ser un número</string>
+    <string name="error_precio_mayor_cero">El precio debe ser mayor que cero</string>
+    <string name="error_cantidad_numero">Las cantidades deben ser números enteros</string>
+    <string name="error_cantidad_negativa">Las cantidades no pueden ser negativas</string>
+    <string name="error_no_existe">No hay ningún producto con ese código</string>
+
+    <!-- Mensajes de confirmación -->
+    <string name="ok_registrado">Producto registrado correctamente</string>
+    <string name="ok_actualizado">Producto actualizado correctamente</string>
+    <string name="ok_eliminado">Producto eliminado correctamente</string>
+
+    <!-- Listados e inventario -->
+    <string name="inventario_vacio">Todavía no hay productos registrados</string>
+    <string name="producto_linea">%1$d · %2$s</string>
+    <string name="producto_detalle">Precio: %1$s   ·   Disponibles: %2$d de %3$d</string>
+    <string name="aviso_agotandose">⚠ Próximo a agotarse (límite: %1$s)</string>
+    <string name="resumen_productos">Productos registrados: %1$d</string>
+    <string name="resumen_unidades">Unidades disponibles: %1$d</string>
+    <string name="resumen_valor">Valor total del inventario: %1$s</string>
+    <string name="resumen_proximos">Productos próximos a agotarse:</string>
+    <string name="sin_proximos">Ningún producto está próximo a agotarse</string>
+</resources>

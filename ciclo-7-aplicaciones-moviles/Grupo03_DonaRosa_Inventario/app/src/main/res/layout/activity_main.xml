@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Una sola pantalla con varias secciones. Solo una está visible a la vez:
+    el menú muestra la que corresponda con View.VISIBLE / View.GONE.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:text="@string/titulo_app"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- ============================ MENÚ ============================ -->
+        <LinearLayout
+            android:id="@+id/seccionMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="@string/menu_subtitulo"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnIrRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_registrar" />
+
+            <Button
+                android:id="@+id/btnIrConsultar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_consultar" />
+
+            <Button
+                android:id="@+id/btnIrActualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_actualizar" />
+
+            <Button
+                android:id="@+id/btnIrEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_eliminar" />
+
+            <Button
+                android:id="@+id/btnIrInventario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_inventario" />
+        </LinearLayout>
+
+        <!-- ========================== REGISTRAR ========================= -->
+        <LinearLayout
+            android:id="@+id/seccionRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="@string/titulo_registrar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etCodigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_codigo"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_nombre"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords" />
+
+            <EditText
+                android:id="@+id/etPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_precio"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/etCantidadInicial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cantidad_inicial"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etCantidadActual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cantidad_actual"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnGuardarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_guardar" />
+
+            <Button
+                android:id="@+id/btnVolverRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_volver" />
+        </LinearLayout>
+
+        <!-- ========================== CONSULTAR ========================= -->
+        <LinearLayout
+            android:id="@+id/seccionConsultar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="@string/titulo_consultar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvListaProductos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dp"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnVolverConsultar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_volver" />
+        </LinearLayout>
+
+        <!-- ========================== ACTUALIZAR ======================== -->
+        <LinearLayout
+            android:id="@+id/seccionActualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="@string/titulo_actualizar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pedir_codigo" />
+
+            <EditText
+                android:id="@+id/etCodigoBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_codigo"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnBuscarActualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_buscar" />
+
+            <!-- Aparece solo cuando el producto existe -->
+            <LinearLayout
+                android:id="@+id/formActualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/hint_nombre"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etNombreEditar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_nombre"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapWords" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/hint_precio"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etPrecioEditar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_precio"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/hint_cantidad_inicial"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etCantidadInicialEditar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_cantidad_inicial"
+                    android:importantForAutofill="no"
+                    android:inputType="number" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/hint_cantidad_actual"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etCantidadActualEditar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_cantidad_actual"
+                    android:importantForAutofill="no"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/btnGuardarCambios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/btn_guardar_cambios" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnVolverActualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_volver" />
+        </LinearLayout>
+
+        <!-- =========================== ELIMINAR ========================= -->
+        <LinearLayout
+            android:id="@+id/seccionEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="@string/titulo_eliminar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pedir_codigo" />
+
+            <EditText
+                android:id="@+id/etCodigoEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_codigo"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnBuscarEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_buscar" />
+
+            <TextView
+                android:id="@+id/tvProductoEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:textSize="15sp" />
+
+            <!-- Confirmación en dos pasos: primero se busca, después se elimina -->
+            <Button
+                android:id="@+id/btnConfirmarEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_confirmar_eliminar"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnVolverEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_volver" />
+        </LinearLayout>
+
+        <!-- ========================== INVENTARIO ======================== -->
+        <LinearLayout
+            android:id="@+id/seccionInventario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="@string/titulo_inventario"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvResumenInventario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dp"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnVolverInventario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_volver" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
