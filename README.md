@@ -10,4 +10,5 @@ Proyectos académicos de la Tecnología en Desarrollo de Software y Aplicaciones
 | 7 | Aplicaciones Móviles | [Promedio](ciclo-7-aplicaciones-moviles/Promedio) / [promedioEstudiantes](ciclo-7-aplicaciones-moviles/promedioEstudiantes) | Kotlin |
 | 7 | Aplicaciones Móviles | [Grupo03_DonaRosa_Inventario](ciclo-7-aplicaciones-moviles/Grupo03_DonaRosa_Inventario) | Android, Kotlin, SQLite |
 | 7 | Pruebas y Mantenimiento de Software | [ProyectoBanco](ciclo-7-pruebas-mantenimiento/ProyectoBanco) | Java, Maven, JUnit |
+| 7 | Lenguaje de Programación para Aplicaciones de Nube | [citas-medicas](ciclo-7-programacion-nube/citas-medicas) | Java, Spring Boot, JPA, H2, Swagger |
 | 7 | Pruebas y Mantenimiento de Software | [tienda-dona-rosa](ciclo-7-pruebas-mantenimiento/tienda-dona-rosa) | Python, Flask, SQLite, pytest |
